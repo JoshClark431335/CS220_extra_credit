@@ -1,21 +1,15 @@
-#include "queue.h"
-
-struct customer{
-    customer();
-    int order_size;
-    int wait_time;
-    int time_waited;
-};
+#include "customer.h"
+#include "doublylinked.h"
 
 class Cashier{
-    public:
-        Cashier();
-        Cashier(double new_speed);
-        void fill_order();
-        Queue customers;
-        int longest_wait;
-    private:
-        int total_wait;
-        int num_filled;
-        double speed;
+	public:
+		Cashier();
+		Cashier(double newSpeed);
+		void fillOrder();
+		List<Customer> customers;
+		int longestWait;
+	private:
+		int totalWait;
+		int numFilled;
+		double speed;
 };

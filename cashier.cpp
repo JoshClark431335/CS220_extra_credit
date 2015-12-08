@@ -2,27 +2,20 @@
 #include <stdlib.h>
 #include <iostream>
 
-customer::customer(){
-    srand(time(NULL));
-    order_size = rand() % 3 + 1; //1-3
-    wait_time = 0;
-    time_waited = 0;
-}
-
 Cashier::Cashier(){
     srand(time(NULL));
     speed = ((rand() % 31) / 100.0) + .7; //.70-1.00
-    total_wait = 0;
-    num_filled = 0;
+    totalWait = 0;
+    numFilled = 0;
 }
 
-Cashier::Cashier(double new_speed){
-    speed = new_speed;
-    total_wait = 0;
-    num_filled = 0;
+Cashier::Cashier(double newSpeed){
+    speed = newSpeed;
+    totalWait = 0;
+    numFilled = 0;
 }
 
-void Cashier::fill_order(){
+void Cashier::fillOrder(){
     /*double temp1;
     customer cust;
     
@@ -42,5 +35,4 @@ void Cashier::fill_order(){
     cust->time_waited++;
     custo*/
 }
-
 

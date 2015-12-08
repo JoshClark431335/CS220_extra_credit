@@ -7,7 +7,6 @@ class Restaurant{
         void add_cashier(double speed);
         int dropped_custs;
 
-    private:
         Cashier* registers;
         int num_cashiers;
 };
