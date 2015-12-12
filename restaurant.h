@@ -2,11 +2,13 @@
 
 class Restaurant{
     public:
-        int avg_wait();
-        int longest_wait;
-        void add_cashier(double speed);
+	Restaurant();
+        int avgWait();
+        int longestWait();
+        void addCashier(double speed);
         int dropped_custs;
+	int ordersFilled();
 
-        Cashier* registers;
+        Cashier registers[10];
         int num_cashiers;
 };

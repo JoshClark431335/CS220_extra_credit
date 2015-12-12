@@ -4,12 +4,14 @@
 class Cashier{
 	public:
 		Cashier();
-		Cashier(double newSpeed);
+		void changeSpeed(double newSpeed);
+		void addOrder();
 		void fillOrder();
 		List<Customer> customers;
 		int longestWait;
+		double avgWait();
+		int numFilled;
 	private:
 		int totalWait;
-		int numFilled;
 		double speed;
 };
