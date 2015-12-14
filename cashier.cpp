@@ -48,5 +48,7 @@ void Cashier::fillOrder(){
 }
 
 double Cashier::avgWait(){
+	if (numFilled == 0)
+		return 0;
 	return ((double) totalWait) / numFilled;
 }

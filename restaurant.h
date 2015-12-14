@@ -3,7 +3,7 @@
 class Restaurant{
     public:
 	Restaurant();
-        int avgWait();
+        double avgWait();
         int longestWait();
         void addCashier(double speed);
         int dropped_custs;

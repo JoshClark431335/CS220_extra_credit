@@ -17,12 +17,14 @@ int Restaurant::longestWait(){
 	return longest;
 }
 
-int Restaurant::avgWait(){
+double Restaurant::avgWait(){
 	double sum = 0;
 
 	for (int i=0; i<num_cashiers; i++){
 		sum += registers[i].avgWait();
 	}
+	if (num_cashiers == 0)
+		return 0;
 	return sum / num_cashiers;
 }
 

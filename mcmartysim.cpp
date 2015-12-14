@@ -26,17 +26,34 @@ int main ()
 
 	cout << "Enter the length of time to run the McMarty's simulator: ";
 	cin >> simLength;
+	while (simLength <= 0 || simLength > 1440) {
+		cout << "Invalid length. Please enter on the range [1,1440]\n";
+		cout << "\t(1 minute to 24 hours)\n";
+		cin >> simLength;
+	}
 	cout << "Enter the number of cashiers McMarty's has: ";
 	cin >> numCashiers;
-	cout << "Enter the efficiency of each cashier (percentage .70 - 1.00):\n";
+	while (numCashiers <= 0 || numCashiers > 10) {
+		cout << "Invalid count. Please enter on the range [1,10]\n";
+		cin >> numCashiers;
+	}
+	cout << "Enter the efficiency of each cashier (70 - 100%):\n";
 	for (int i=0; i<numCashiers; i++){
-		double newSpeed;
+		int newSpeed;
 		cout << "Cashier #" << i+1 << ": ";
 		cin >> newSpeed;
-		mcMarty.addCashier(newSpeed);
+		while (newSpeed < 70 || newSpeed > 100) {
+			cout << "Invalid percentage. Please enter on the range [70,100]\n";
+			cin >> newSpeed;
+		}
+		mcMarty.addCashier(newSpeed / 100.0);
 	}
-	cout << "Enter the probability as a percentage of a customer joining every minute:\n";
+	cout << "Enter the probability as a percentage of a customer joining every minute:";
 	cin >> busyness;
+	while (busyness < 50 || busyness > 100) {
+		cout << "Invalid entry. Please enter on the range [50,100]\n";
+		cin >> busyness;
+	}
 
 	for (int minute = 0; minute < simLength; minute++) {
 
@@ -79,6 +96,7 @@ int main ()
 			}
 		}
 
+		/*
 		cout << "minute=" << minute << endl;
 		for (int i=0; i<mcMarty.num_cashiers; i++){
 			Cashier *active;
@@ -103,12 +121,17 @@ int main ()
 		}
 		char wait;
 		//cin >> wait;
+		*/
 	}
 	cout << "Restaurant stats\n";
 	cout << "\taverage wait:  " << mcMarty.avgWait() << endl;
 	cout << "\tlongest wait:  " << mcMarty.longestWait() << endl;
 	cout << "\torders filled/taken: " << mcMarty.ordersFilled()  << "/" <<
-		ordersTaken << ", " << setprecision(2) << (double) mcMarty.ordersFilled()
+		ordersTaken << ", ";
+	if (ordersTaken == 0)
+		cout << "0.0\n";
+	else
+		cout << setprecision(2) << (double) mcMarty.ordersFilled()
 		/ ordersTaken << endl;
 	cout << "\torders dropped: " << mcMarty.dropped_custs << endl;
 	cout << endl;
